@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आई लव यू संदेश</title>
+    <!-- कस्टम CSS: वेबसाइट को सुंदर और आकर्षक बनाने के लिए -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffeef2; /* बहुत हल्का गुलाबी */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 102, 102, 0.2); /* प्यारा छाया प्रभाव */
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+        }
+
+        h1 {
+            color: #ff527b; /* गहरा गुलाबी */
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        #input-area {
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ff99b8;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ff527b;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #ff527b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            font-weight: 700;
+            box-shadow: 0 4px #e04b6b;
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #e04b6b;
+        }
+
+        #message {
+            min-height: 50px;
+            font-size: 1.8em;
+            color: #d81b60; 
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            word-wrap: break-word;
+        }
+        
+        .initial-text {
+            color: #aaa;
+            font-size: 1em;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>💖 प्यार भरा संदेश 💖</h1>
+        
+        <div id="input-area">
+            <input type="text" id="nameInput" placeholder="अपना नाम यहाँ लिखें (जैसे: प्रिया)" 
+                   onkeyup="if(event.key === 'Enter') showMessage()">
+            <button onclick="showMessage()">संदेश दिखाएँ</button>
+        </div>
+
+        <div id="message" class="initial-text">
+            <!-- यहाँ आपका प्यार भरा संदेश डिस्प्ले होगा -->
+            नाम भरकर "संदेश दिखाएँ" पर क्लिक करें!
+        </div>
+    </div>
+
+    <!-- JavaScript लॉजिक -->
+    <script>
+        /**
+         * नाम इनपुट से प्राप्त करता है और 'आई लव यू' संदेश डिस्प्ले करता है।
+         */
+        function showMessage() {
+            // इनपुट बॉक्स से नाम प्राप्त करें
+            const name = document.getElementById('nameInput').value.trim();
+            const messageDiv = document.getElementById('message');
+
+            // सुनिश्चित करें कि मैसेज कंटेनर की स्टाइलिंग अपडेट हो
+            messageDiv.classList.remove('initial-text');
+
+            if (name) {
+                // नाम के साथ संदेश सेट करें
+                // HTML एंटिटी का उपयोग करके हार्ट इमोजी जोड़ें
+                messageDiv.innerHTML = `आई लव यू, **${name}**! 🥰`;
+            } else {
+                // अगर कोई नाम नहीं डाला गया है
+                messageDiv.innerHTML = '🤔 कृपया कोई नाम दर्ज करें।';
+            }
+        }
+    </script>
+
+</body>
+</html>
